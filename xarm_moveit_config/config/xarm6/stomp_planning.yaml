@@ -1,0 +1,4 @@
+xarm6:
+  default_planner_config: STOMP
+  planner_configs:
+    - STOMP
