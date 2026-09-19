@@ -1,14 +1,13 @@
 planning_plugin: stomp_moveit/StompPlanner
 # Humble の planning_pipeline は request_adapters だけを読む（response_adapters は Iron 以降）。
-# 旧設定は Iron 以降のクラス名（default_planning_request_adapters/CheckStartState* 等）で
-# 書かれていたため、Humble では 4 つとも「does not exist」で読み込まれず、stomp パイプラインは
-# 開始状態の境界・衝突検査も時間パラメータ化も無しで動いていた（2026-09-19 実測）。
-# ompl_planning.yaml と同じ Humble の名前に揃える。
+# adapter のクラス名も Humble のもの（default_planner_request_adapters/...）で書く。
+# 名前が違うと 1 つも読み込まれず、開始状態の境界・衝突検査も時間パラメータ化も
+# 無しで計画が通ってしまう。ompl_planning.yaml と同じ名前に揃える。
 #
-# FixStartStateCollision は Humble では「開始状態が衝突なら jiggle_fraction の範囲で
-# 開始状態をずらして計画する」修正型の adapter。実行境界では「ずらして通す」のではなく
-# 「止める」挙動にしたいので jiggle_fraction を 0 にし、衝突していれば
-# START_STATE_IN_COLLISION で失敗させる。
+# FixStartStateCollision は「開始状態が衝突なら jiggle_fraction の範囲で開始状態を
+# ずらして計画する」修正型の adapter。「ずらして通す」のではなく「止める」挙動に
+# したいので jiggle_fraction を 0 にし、衝突していれば START_STATE_IN_COLLISION で
+# 失敗させる。
 start_state_max_bounds_error: 0.1
 jiggle_fraction: 0.0
 max_sampling_attempts: 1
