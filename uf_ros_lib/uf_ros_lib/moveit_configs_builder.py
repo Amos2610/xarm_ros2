@@ -860,6 +860,10 @@ class DualMoveItConfigsBuilder(ParameterBuilder):
 
         robot_ip_1 = get_param_str('robot_ip_1', '')
         robot_ip_2 = get_param_str('robot_ip_2', '')
+        attach_xyz_1 = get_list_param_str('attach_xyz_1', '0 0 0')
+        attach_rpy_1 = get_list_param_str('attach_rpy_1', '0 0 0')
+        attach_xyz_2 = get_list_param_str('attach_xyz_2', '0 1 0')
+        attach_rpy_2 = get_list_param_str('attach_rpy_2', '0 0 0')
         report_type = get_param_str('report_type', 'normal')
         report_type_1 = get_param_str('report_type_1', report_type)
         report_type_2 = get_param_str('report_type_2', report_type)
@@ -960,6 +964,10 @@ class DualMoveItConfigsBuilder(ParameterBuilder):
         self.__urdf_xacro_args = {
             'robot_ip_1': robot_ip_1,
             'robot_ip_2': robot_ip_2,
+            'attach_xyz_1': attach_xyz_1,
+            'attach_rpy_1': attach_rpy_1,
+            'attach_xyz_2': attach_xyz_2,
+            'attach_rpy_2': attach_rpy_2,
             'report_type_1': report_type_1,
             'report_type_2': report_type_2,
             'baud_checkset_1': baud_checkset_1,

@@ -61,6 +61,11 @@ def launch_setup(context, *args, **kwargs):
     add_other_geometry = LaunchConfiguration('add_other_geometry', default=False)
     add_other_geometry_1 = LaunchConfiguration('add_other_geometry_1', default=add_other_geometry)
     add_other_geometry_2 = LaunchConfiguration('add_other_geometry_2', default=add_other_geometry)
+    # 台座の取り付け位置（world 基準、"x y z" / "r p y"）
+    attach_xyz_1 = LaunchConfiguration('attach_xyz_1', default='"0 0 0"')
+    attach_rpy_1 = LaunchConfiguration('attach_rpy_1', default='"0 0 0"')
+    attach_xyz_2 = LaunchConfiguration('attach_xyz_2', default='"0 1 0"')
+    attach_rpy_2 = LaunchConfiguration('attach_rpy_2', default='"0 0 0"')
     geometry_type = LaunchConfiguration('geometry_type', default='box')
     geometry_type_1 = LaunchConfiguration('geometry_type_1', default=geometry_type)
     geometry_type_2 = LaunchConfiguration('geometry_type_2', default=geometry_type)
@@ -126,6 +131,10 @@ def launch_setup(context, *args, **kwargs):
         robot_type_2=robot_type_2,
         prefix_1=prefix_1,
         prefix_2=prefix_2,
+        attach_xyz_1=attach_xyz_1,
+        attach_rpy_1=attach_rpy_1,
+        attach_xyz_2=attach_xyz_2,
+        attach_rpy_2=attach_rpy_2,
         hw_ns=hw_ns,
         limited=limited,
         effort_control=effort_control,
